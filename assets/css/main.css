@@ -1,0 +1,18 @@
+body {
+  background: #fff;
+}
+.container {
+  display: grid;
+  grid-template-columns: 12% 88%;
+  padding: 0px 10px;
+}
+.container #ad-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding: 10px 0px;
+}
+.container #ad-grid img {
+  width: 728px;
+}
