@@ -1,19 +1,45 @@
-body{
-  background:#fff;
+body {
+  margin: 0;
+  overflow: hidden;
 }
-.container{
+h1{
+  font-size: 30px;
+}
+.page {
   display: grid;
-  grid-template-columns: 12% 88%;
-    padding: 0px 10px;
-  #ad-grid{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-bottom: 2px solid #eee;
-        padding: 10px 0px;
-    img{
-      width: 728px;
+  grid-template-areas: "nav top_ad"
+  "nav content";
+  grid-template-columns: 12% auto;
+
+    .nav {
+      grid-area: nav;
+      background-color: aqua;
+      height: calc(100vh);
+      position: sticky;
+      top: 0;
+      box-sizing: border-box;
     }
-  }
+
+    .top_ad {
+      grid-area: top_ad;
+      background-color: lightgrey;
+      position: sticky;
+      top: 0;
+      box-sizing: border-box;
+      height: 80px;
+    }
+
+    .content {
+      grid-area: content;
+      background-color: red;
+      overflow: auto;
+
+      article {
+        height: 1000px;
+      }
+    }
+  
 }
+
+
 
