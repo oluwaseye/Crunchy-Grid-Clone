@@ -1,45 +1,74 @@
 body {
-  margin: 0;
-  overflow: hidden;
+  margin: 0px;
+  overflow-y: scroll;
 }
-h1{
-  font-size: 30px;
+
+.sidebar {
+  grid-area: sidebar;
+  height: calc(90vh);
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    width: 12%;
 }
-.page {
+
+.content {
+  grid-area: content;
+  box-sizing: border-box;
+  height: calc(100%);
+}
+
+.header {
+  grid-area: header;
+  background-color: #999 !important;
+  box-sizing: border-box;
+  height: calc(10vh);
+  position: sticky;
+  top: 0;
+ -webkit-transform: translateY(-150%);
+    transform: translateY(-150%);
+    -webkit-transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
+    transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
+    transition: transform .4s ease,top .4s ease,height .4s ease;
+    transition: transform .4s ease,top .4s ease,height .4s ease,-webkit-transform .4s ease;
+}
+.footer {
+  grid-area: footer;
+  background-color: rgb(185, 184, 87) !important;
+  box-sizing: border-box;
+  height: calc(10vh);
+  position: sticky;
+  bottom: 0;
+  -webkit-transform: translateY(150%);
+  transform: translateY(150%);
+  -webkit-transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
+  transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
+  transition: transform .4s ease, top .4s ease, height .4s ease;
+  transition: transform .4s ease, top .4s ease, height .4s ease, -webkit-transform .4s ease;
+}
+
+.wrapper {
   display: grid;
-  grid-template-areas: "nav top_ad"
-  "nav content";
+  grid-gap: 10px;
   grid-template-columns: 12% auto;
-
-    .nav {
-      grid-area: nav;
-      background-color: aqua;
-      height: calc(100vh);
-      position: sticky;
-      top: 0;
-      box-sizing: border-box;
-    }
-
-    .top_ad {
-      grid-area: top_ad;
-      background-color: lightgrey;
-      position: sticky;
-      top: 0;
-      box-sizing: border-box;
-      height: 80px;
-    }
-
-    .content {
-      grid-area: content;
-      background-color: red;
-      overflow: auto;
-
-      article {
-        height: 1000px;
-      }
-    }
-  
+  grid-template-rows: 110px auto 110px;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar content"
+    "footer footer";
+  background-color: #fff;
+  color: #444;
 }
 
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
 
+.position-fixed {
+transform: translate(0);
+}
 
