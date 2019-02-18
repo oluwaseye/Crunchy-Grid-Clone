@@ -2,73 +2,100 @@ body {
   margin: 0px;
   overflow-y: scroll;
 }
-
-.sidebar {
-  grid-area: sidebar;
-  height: calc(90vh);
-    position: fixed;
-    top: 0;
-    box-sizing: border-box;
-    width: 12%;
-}
-
-.content {
-  grid-area: content;
-  box-sizing: border-box;
-  height: calc(100%);
-}
-
-.header {
-  grid-area: header;
-  background-color: #999 !important;
-  box-sizing: border-box;
-  height: calc(10vh);
-  position: sticky;
-  top: 0;
- -webkit-transform: translateY(-150%);
-    transform: translateY(-150%);
-    -webkit-transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
-    transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
-    transition: transform .4s ease,top .4s ease,height .4s ease;
-    transition: transform .4s ease,top .4s ease,height .4s ease,-webkit-transform .4s ease;
-}
-.footer {
-  grid-area: footer;
-  background-color: rgb(185, 184, 87) !important;
-  box-sizing: border-box;
-  height: calc(10vh);
-  position: sticky;
-  bottom: 0;
-  -webkit-transform: translateY(150%);
-  transform: translateY(150%);
-  -webkit-transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
-  transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
-  transition: transform .4s ease, top .4s ease, height .4s ease;
-  transition: transform .4s ease, top .4s ease, height .4s ease, -webkit-transform .4s ease;
-}
-
 .wrapper {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 12% auto;
-  grid-template-rows: 110px auto 110px;
+  grid-template-rows: 90px auto 110px;
   grid-template-areas:
     "sidebar header"
-    "sidebar content"
+    "sidebar main"
     "footer footer";
   background-color: #fff;
   color: #444;
-}
+    .sidebar {
+      grid-area: sidebar;
+      height:calc(100%);
+        position: fixed; 
+        top: 0;
+        box-sizing: border-box;
+        width: 12%;
+        .logo{
+          display: grid;
+          a{
+            background: url(/assets/images/logo.png);
+            width: 80px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            justify-self: center;
+          }
+        }
+    }
+    
+    .main {
+      grid-area: main;
+      box-sizing: border-box;
+      height: calc(100%);
+      display: grid;
+      grid-template-columns: 85% auto;
+      grid-template-areas:
+        "content_area side_ad";
 
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-}
+        .content_area{
+          grid-area: content_area;
+          box-sizing: border-box;
+        }
 
-.position-fixed {
-transform: translate(0);
+        .side_ad{
+            grid-area: side_ad;
+            box-sizing: border-box;
+        }
+    }
+    
+    .header {
+      grid-area: header;
+      background-color: #999 !important;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      -webkit-transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
+        transition: top .4s ease,height .4s ease,-webkit-transform .4s ease;
+        transition: transform .4s ease,top .4s ease,height .4s ease;
+        transition: transform .4s ease,top .4s ease,height .4s ease,-webkit-transform .4s ease;
+    }
+    .footer {
+      grid-area: footer;
+      background-color: rgb(185, 184, 87) !important;
+      box-sizing: border-box;
+      height: calc(10vh);
+      position: sticky;
+      bottom: 0;
+      
+      -webkit-transform: translateY(150%);
+        transform: translateY(150%);
+      -webkit-transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
+      transition: top .4s ease, height .4s ease, -webkit-transform .4s ease;
+      transition: transform .4s ease, top .4s ease, height .4s ease;
+      transition: transform .4s ease, top .4s ease, height .4s ease, -webkit-transform .4s ease;
+    }
+    
+    
+    
+    .box {
+      // background-color: #444;
+      // color: #fff;
+      // border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+    }
+    
+    .position-fixed {
+      -webkit-transform: translateY(-150%);
+        transform: translateY(-150%);
+    }
+    
+    .footer-fixed {
+    transform: translate(0);
+    }
 }
-

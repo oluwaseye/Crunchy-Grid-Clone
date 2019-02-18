@@ -7,16 +7,18 @@ function getDocHeight() {
   );
 }
 $(window).scroll(function () {
-  if ($(window).scrollTop() > 200) {
-    $('.header').removeClass('position-fixed');
-    $('.content').css('margin-top', '120px');
-  } else if ($(window).scrollTop() == 0) {
+  console.log($(window).scrollTop());
+  if ($(window).scrollTop() >= 200) {
+    
     $('.header').addClass('position-fixed');
-    $('.content').css('margin-top', '0px');
+    $('.main').css('margin-top', '120px');
+  } else if ($(window).scrollTop() == 0) {
+    $('.header').removeClass('position-fixed');
+    $('.main').css('margin-top', '0px');
   }
   if ($(window).scrollTop() + $(window).height() - 100 == getDocHeight() - 100 ) {
-    $('.footer').addClass('position-fixed');
+    $('.footer').addClass('footer-fixed');
   }else{
-    $('.footer').removeClass('position-fixed');
+    $('.footer').removeClass('footer-fixed');
   }
 });
